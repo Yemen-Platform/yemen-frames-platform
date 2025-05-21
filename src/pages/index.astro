@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import siteConfig from '@/site-config'
+import Button from '@/components/Button.astro'
+---
+
+<BaseLayout description={siteConfig.description}>
+  <section class="text-center py-16 px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primary golden-gradient-text-dark">إطارات اليمن</h1>
+    <p class="text-lg md:text-xl text-base-content mb-6">
+      أول منصة يمنية متخصصة في تصميم إطارات الصور بأسلوب عصري وتجربة استخدام مرنة وسهلة.
+    </p>
+    <Button href="/frame" label="صمّم إطارك الآن" />
+    <div class="mt-10">
+      <img
+        src={siteConfig.image.src}
+        alt={siteConfig.image.alt}
+        loading="lazy"                  
+        decoding="async"
+        class="mx-auto rounded-xl shadow-lg max-w-full w-[640px]"
+        width="640" 
+        height="360"                 
+      />
+    </div>
+  </section>
+
+  <section class="prose max-w-4xl mx-auto px-4 text-right">
+    <h2>لماذا إطارات اليمن؟</h2>
+    <ul>
+      <li>تصميم أنيق وسهل الاستخدام</li>
+      <li>إطارات مستوحاة من الهوية اليمنية والعربية</li>
+      <li>توافق مثالي مع الهواتف والكمبيوتر</li>
+      <li>حفظ فوري للصورة بجودة عالية</li>
+      <li>واجهة عربية بالكامل</li>
+    </ul>
+    <hr class="hr-line" />
+  </section>
+</BaseLayout>

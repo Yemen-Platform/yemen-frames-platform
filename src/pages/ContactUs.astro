@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContactForm from '@/components/ContactForm.vue';
+---
+
+<BaseLayout title="اتصل بنا" description="تواصل معنا لأي استفسارات أو دعم فني.">
+  <div class="container mx-auto py-10 px-6">
+    <h1 class="text-4xl font-bold mb-6 pr-2 border-r-2 border-slate/80">اتصل بنا</h1>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">نحن هنا لمساعدتك</h2>
+      <p>
+        إذا كان لديك أي استفسارات أو تحتاج إلى دعم، لا تتردد في التواصل معنا. نحن هنا للرد على أسئلتك ومساعدتك
+        في حل أي مشكلات قد تواجهها.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">تفاصيل الاتصال</h2>
+      <ul class="list-disc list-inside">
+        <li><strong>البريد الإلكتروني:</strong> <a href="mailto:ye-frames@gmail.com" class="text-blue-600 hover:underline">ye-frames@gmail.com</a></li>
+      </ul>
+    </section>
+
+    <ContactForm client:load />
+  </div>
+</BaseLayout>

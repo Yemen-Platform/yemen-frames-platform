@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AboutUs from '@/components/AboutUs.vue';
+---
+
+<BaseLayout title="من نحن" description="تعرف على رؤيتنا ورسالتنا وقيمنا">
+  <div class="prose max-w-none">
+    <AboutUs client:load />
+  </div>
+</BaseLayout>

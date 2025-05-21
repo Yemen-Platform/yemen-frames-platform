@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import FrameBuilder from '@/components/FrameBuilder.vue'
+---
+
+<BaseLayout title="صمم إطارك">
+  <section class="p-4">
+    <FrameBuilder client:only="vue" />
+  </section>
+</BaseLayout>
