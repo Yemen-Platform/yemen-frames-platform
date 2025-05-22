@@ -13,16 +13,14 @@ import Button from '@/components/Button.astro'
       بمنصتك الأولى لتصميم الإطارات بأسلوبك الخاص.
     </p>
     
-    <a
-      href="/frame"
-      class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
-      onClick="gtag('event', 'start_frame_design', {
-        event_category: 'engagement',
-        event_label: 'CTA Home - Start Designing'
-      })"
-    >
-      صمّم إطارك الآن
-    </a>
+<Button 
+  href="/frame" 
+  label="صمّم إطارك الآن"
+  onClick="gtag('event', 'start_frame_design', {
+    event_category: 'engagement',
+    event_label: 'CTA Home - Start Designing'
+  })"
+/>
 
     <div class="mt-10">
       <img
