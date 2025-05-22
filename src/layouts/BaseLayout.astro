@@ -14,6 +14,15 @@ const { ...head } = Astro.props
   <head>
     <BaseHead {...head} />
     <ViewTransitions />
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHCZSFLK28"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XHCZSFLK28');
+    </script>
   </head>
   <body class="bg-main text-main min-h-screen font-sans rtl w-full">
     <Header client:load />
