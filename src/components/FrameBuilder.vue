@@ -94,7 +94,7 @@ const frameFileInput = ref(null);
 
 const defaultFramePath = '/frame.png';
 const frameSrc = ref(defaultFramePath);
-const logoSrc = ref('/logo.svg');
+const logoSrc = ref('/logo-gold.svg');
 
 const isCustomFrame = computed(() => frameSrc.value !== defaultFramePath);
 
