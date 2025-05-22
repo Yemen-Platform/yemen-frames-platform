@@ -1,5 +1,10 @@
+---
+const { href = "/frame", label = "صمّم إطارك الآن", onClick = "" } = Astro.props
+---
+
 <a
-  href="/frame"
+  href={href}
+  onClick={onClick}
   class="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-bold text-white
          bg-gradient-to-br from-blue-800 via-indigo-900 to-blue-950
          border border-yellow-400 select-none
@@ -7,7 +12,7 @@
          no-underline cursor-pointer"
 >
   <span class="relative z-10 flex items-center gap-2 transition-colors duration-700 group-hover:text-yellow-300">
-    صمّم إطارك الآن
+    {label}
     <i class="i-heroicons-arrow-right w-5 h-5 transition-transform group-hover:translate-x-2" />
   </span>
 
