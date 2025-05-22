@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config'
 import UnoCSS from 'unocss/astro'
 
 export default defineConfig({
-  site: 'https://yemen-frames-platform.netlify.app/',
+  site: 'https://ye-frames.netlify.app/',
   server: {
     port: 1977,
   },
