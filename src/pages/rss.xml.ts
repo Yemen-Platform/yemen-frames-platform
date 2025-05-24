@@ -3,19 +3,30 @@ import { getPosts } from '@/utils/posts'
 import rss from '@astrojs/rss'
 
 interface Context {
-  site: string
+  site: string | URL; // جعل site يقبل string أو URL
 }
 
 export async function GET(context: Context) {
   const posts = await getPosts()
 
-  // تأكد من أن site لا ينتهي بشرطة مائلة قبل إضافة المسار
-  const baseUrl = context.site.endsWith('/') ? context.site.slice(0, -1) : context.site
+  // تأكد من أن context.site هو سلسلة نصية
+  let siteUrlString: string;
+  if (typeof context.site === 'string') {
+    siteUrlString = context.site;
+  } else if (context.site instanceof URL) {
+    siteUrlString = context.site.toString();
+  } else {
+    // fallback في حالة وجود قيمة غير متوقعة، يمكنك تعديل هذا
+    siteUrlString = String(context.site);
+  }
+
+  // الآن تأكد من أن baseUrl لا ينتهي بشرطة مائلة
+  const baseUrl = siteUrlString.endsWith('/') ? siteUrlString.slice(0, -1) : siteUrlString;
 
   return rss({
     title: siteConfig.title,
     description: siteConfig.description,
-    site: context.site,
+    site: siteUrlString, // استخدم siteUrlString هنا
     items: posts!.map((item) => {
       return {
         ...item.data,
