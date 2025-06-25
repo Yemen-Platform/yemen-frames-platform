@@ -39,9 +39,9 @@ export const siteConfig = {
       { text: 'دليل الاستخدام', href: '/posts/guide' },
       { text: 'عن المنصة', href: '/about' },
       { text: 'سياسة الخصوصية', href: '/privacy-policy' },
-      { text: 'كن داعمًا', href: '/Sponsored' },
+      { text: 'كن داعمًا', href: '/sponsored' },
       { text: 'سجل التغييرات', href: '/changelog' },
-      { text: 'تواصل معنا', href: '/ContactUs' },
+      { text: 'تواصل معنا', href: '/contactUs' },
     ],
   },
   page: {
