@@ -88,5 +88,9 @@ export default defineConfig({
     'i-ri-facebook-circle-fill',
     'i-ri-facebook-circle-line',
   ],
+extract: {
+  include: ['src/**/*.{astro,vue,html,js,ts}'],
+  exclude: ['node_modules', '.git'],
+}
   rules: [['rtl', { direction: 'rtl', 'text-align': 'right' }]],
 });
