@@ -1,8 +1,6 @@
 ---
 import siteConfig from '@/site-config'
-import '@/styles/global.css'
-import '@/styles/prose.css'
-import '@/styles/dot.css'
+import '@/styles/global.css' // فقط الأساسي
 
 interface Props {
   title?: string
@@ -82,18 +80,18 @@ const structuredData = [
 ].filter(Boolean)
 ---
 
-<!-- High Priority Global Metadata -->
+<!-- High Priority Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>{title}</title>
 <meta name="generator" content={Astro.generator} />
 
-<!-- Low Priority Global Metadata -->
+<!-- Favicon & Feeds -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
 
-<!-- Page Metadata -->
+<!-- SEO -->
 <link rel="canonical" href={formatCanonicalURL(canonicalURL)} />
 <meta name="description" content={description} />
 
@@ -105,7 +103,7 @@ const structuredData = [
 {resolvedImage?.src && <meta property="og:image" content={resolvedImage.src} />}
 {resolvedImage?.alt && <meta property="og:image:alt" content={resolvedImage.alt} />}
 
-<!-- Twitter / X -->
+<!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={formatCanonicalURL(canonicalURL)} />
 <meta property="twitter:title" content={title} />
@@ -113,21 +111,24 @@ const structuredData = [
 {resolvedImage?.src && <meta property="twitter:image" content={resolvedImage.src} />}
 {resolvedImage?.alt && <meta name="twitter:image:alt" content={resolvedImage.alt} />}
 
-<!-- SEO Verification -->
+<!-- Verification -->
 <meta name="google-site-verification" content="Saina7Yz75EpXBX4YnJtgeNf-I8tqPAo223npu5_ARs" />
 <meta name="facebook-domain-verification" content="p104rmdyx33ro8yy2aghhynac0ny8o" />
+
 <!-- Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 
-<!-- NProgress Page Transitions -->
+<!-- 🟡 تحميل مؤجل لـ prose.css و dot.css -->
+<link rel="stylesheet" href="/styles/prose.css" media="print" onload="this.media='all'" />
+<link rel="stylesheet" href="/styles/dot.css" media="print" onload="this.media='all'" />
+<noscript>
+  <link rel="stylesheet" href="/styles/prose.css" />
+  <link rel="stylesheet" href="/styles/dot.css" />
+</noscript>
+
+<!-- NProgress Transitions -->
 <script>
   import nprogress from 'nprogress'
-
-  document.addEventListener('astro:before-preparation', () => {
-    nprogress.start()
-  })
-
-  document.addEventListener('astro:page-load', () => {
-    nprogress.done()
-  })
+  document.addEventListener('astro:before-preparation', () => { nprogress.start() })
+  document.addEventListener('astro:page-load', () => { nprogress.done() })
 </script>
