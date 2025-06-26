@@ -91,6 +91,6 @@ export default defineConfig({
 extract: {
   include: ['src/**/*.{astro,vue,html,js,ts}'],
   exclude: ['node_modules', '.git'],
-}
+},
   rules: [['rtl', { direction: 'rtl', 'text-align': 'right' }]],
 });
