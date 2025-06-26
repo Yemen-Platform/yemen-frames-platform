@@ -19,7 +19,7 @@
 "scripts": {
   "prepare": "simple-git-hooks",
   "dev": "pnpm exec astro dev --host",
-  "build": "astro build && unocss --mode global",
+  "build": "astro build",
   "preview": "pnpm exec astro preview",
   "lint": "pnpm exec eslint .",
   "lint:fix": "pnpm exec eslint . --fix",
