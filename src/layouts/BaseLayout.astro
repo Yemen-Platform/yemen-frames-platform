@@ -15,34 +15,31 @@ const { ...head } = Astro.props
   <BaseHead {...head} />
   <ViewTransitions />
 
-  <!-- تحميل Google Tag Manager مؤجل -->
-  <script type="text/javascript" is:inline>
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => {
-        const gtagScript = document.createElement('script');
-        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XHCZSFLK28";
-        gtagScript.async = true;
-        document.head.appendChild(gtagScript);
+<!-- تحميل Google Tag Manager مؤجل ومحسَّن -->
+<script type="text/javascript" is:inline>
+  // ✅ متوفر فورًا لأي كود آخر
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XHCZSFLK28');
-      });
-    } else {
-      setTimeout(() => {
-        const gtagScript = document.createElement('script');
-        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XHCZSFLK28";
-        gtagScript.async = true;
-        document.head.appendChild(gtagScript);
+  // ✅ تأجيل التحميل الفعلي للمكتبة
+  function loadGTM() {
+    const script = document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-XHCZSFLK28";
+    script.async = true;
+    document.head.appendChild(script);
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XHCZSFLK28');
-      }, 2000);
-    }
-  </script>
+    script.onload = () => {
+      gtag('js', new Date());
+      gtag('config', 'G-XHCZSFLK28');
+    };
+  }
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadGTM);
+  } else {
+    setTimeout(loadGTM, 2000);
+  }
+</script>
 </head>
   <body class="bg-main text-main min-h-screen font-sans rtl w-full">
     <Header client:load />
