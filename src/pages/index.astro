@@ -27,12 +27,12 @@ import hero from '@/assets/hero.webp?w=480;768;1024&format=webp;avif&as=picture'
       }}
     />
 
-    <div class="mt-10">
-      <hero.Picture
-        alt="الصورة الرئيسية لمنصة إطارات اليمن"
-        class="mx-auto rounded-xl shadow-lg w-full max-w-md md:max-w-xl lg:max-w-2xl"
-      />
-    </div>
+<div class="mt-10">
+  {hero.Picture({
+    alt: "الصورة الرئيسية لمنصة إطارات اليمن",
+    class: "mx-auto rounded-xl shadow-lg w-full max-w-md md:max-w-xl lg:max-w-2xl"
+  })}
+</div>
   </section>
 
   <section class="prose max-w-4xl mx-auto px-4 text-right">
