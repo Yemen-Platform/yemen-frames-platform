@@ -48,7 +48,7 @@ const { ...head } = Astro.props
       transition:animate={fade({ duration: '0.4s' })}
     >
       <slot />
-      <ScrollToTop client:load />
+      <ScrollToTop client:idle />
       <Footer />
     </main>
   </body>
