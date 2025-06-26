@@ -26,16 +26,22 @@ import Button from '@/components/Button.astro'
       }}
     />
 
-    <div class="mt-10">
-      <img
-        src={siteConfig.image.src}
-        alt={siteConfig.image.alt}
-        loading="lazy"                  
-        decoding="async"
-        class="mx-auto rounded-xl shadow-lg max-w-full w-[640px]"
-        width="640" 
-        height="360"                 
-      />
+<div class="mt-10">
+      <picture>
+        <!-- إذا أضفت hero.avif لاحقًا فقط أزل التعليق التالي -->
+        <!-- <source srcset={siteConfig.image.src.replace('.webp', '.avif')} type="image/avif" /> -->
+        <source srcset={siteConfig.image.src} type="image/webp" />
+        <img
+          src={siteConfig.image.src}
+          alt={siteConfig.image.alt}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          width="640"
+          height="360"
+          class="mx-auto rounded-xl shadow-lg w-full max-w-md md:max-w-xl lg:max-w-2xl"
+        />
+      </picture>
     </div>
   </section>
 
