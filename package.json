@@ -16,15 +16,15 @@
   "engines": {
     "node": ">=18.17.1"
   },
-  "scripts": {
-    "prepare": "simple-git-hooks",
-    "dev": "pnpm exec astro dev --host",
-    "build": "pnpm exec astro build",
-    "preview": "pnpm exec astro preview",
-    "lint": "pnpm exec eslint .",
-    "lint:fix": "pnpm exec eslint . --fix",
-    "release": "pnpm exec bumpp"
-  },
+"scripts": {
+  "prepare": "simple-git-hooks",
+  "dev": "pnpm exec astro dev --host",
+  "build": "pnpm exec astro build && pnpm exec unocss --mode global",
+  "preview": "pnpm exec astro preview",
+  "lint": "pnpm exec eslint .",
+  "lint:fix": "pnpm exec eslint . --fix",
+  "release": "pnpm exec bumpp"
+},
   "dependencies": {
     "@astrojs/mdx": "^4.2.4",
     "@astrojs/rss": "^4.0.11",
