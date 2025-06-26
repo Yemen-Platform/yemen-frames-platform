@@ -9,7 +9,7 @@
           type="text"
           id="name"
           placeholder="أدخل اسمك"
-          class="w-full px-3 py-2 border border-gray-300 rounded"
+          class="w-full px-3 py-2 border border-gray-300 rounded border-secondary"
           required
         />
       </div>
@@ -21,7 +21,7 @@
           type="email"
           id="email"
           placeholder="أدخل بريدك الإلكتروني"
-          class="w-full px-3 py-2 border border-gray-300 rounded"
+          class="w-full px-3 py-2 border border-gray-300 rounded border-secondary"
           required
         />
       </div>
@@ -33,14 +33,14 @@
           id="message"
           rows="4"
           placeholder="اكتب رسالتك هنا"
-          class="w-full px-3 py-2 border border-gray-300 rounded"
+          class="w-full px-3 py-2 border border-gray-300 rounded border-secondary"
           required
         ></textarea>
       </div>
 
       <button
         type="submit"
-        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
       >
         إرسال
       </button>
@@ -60,10 +60,6 @@ const form = ref({
 const handleSubmit = () => {
   console.log('Form submitted:', form.value);
   alert('تم إرسال الرسالة بنجاح!');
-  form.value = { name: '', email: '', message: '' }; // إعادة تعيين النموذج
+  form.value = { name: '', email: '', message: '' };
 };
 </script>
-
-<style scoped>
-/* يمكن إضافة تحسينات لاحقًا حسب التصميم العام */
-</style>
