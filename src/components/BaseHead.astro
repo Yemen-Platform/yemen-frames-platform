@@ -1,7 +1,7 @@
 ---
 import siteConfig from '@/site-config'
-import '@/styles/global.css' // فقط الأساسي
-
+import '@/styles/global.css'
+import '@/styles/prose.css'
 interface Props {
   title?: string
   description?: string
@@ -117,14 +117,6 @@ const structuredData = [
 
 <!-- Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
-
-<!-- 🟡 تحميل مؤجل لـ prose.css و dot.css -->
-<link rel="stylesheet" href="/styles/prose.css" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="/styles/dot.css" media="print" onload="this.media='all'" />
-<noscript>
-  <link rel="stylesheet" href="/styles/prose.css" />
-  <link rel="stylesheet" href="/styles/dot.css" />
-</noscript>
 
 <!-- NProgress Transitions -->
 <script>
