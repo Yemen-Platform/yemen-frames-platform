@@ -11,19 +11,39 @@ const { ...head } = Astro.props
 
 <!doctype html>
 <html lang="ar">
-  <head>
-    <BaseHead {...head} />
-    <ViewTransitions />
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHCZSFLK28"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XHCZSFLK28');
-    </script>
-  </head>
+<head>
+  <BaseHead {...head} />
+  <ViewTransitions />
+
+  <!-- تحميل Google Tag Manager مؤجل -->
+  <script type="text/javascript" is:inline>
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XHCZSFLK28";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XHCZSFLK28');
+      });
+    } else {
+      setTimeout(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XHCZSFLK28";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XHCZSFLK28');
+      }, 2000);
+    }
+  </script>
+</head>
   <body class="bg-main text-main min-h-screen font-sans rtl w-full">
     <Header client:load />
     <main
