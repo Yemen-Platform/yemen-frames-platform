@@ -8,7 +8,7 @@ export const siteConfig = {
     src: '/hero.webp',         // تأكد من تحسين حجم الصورة لتقليل وقت التحميل
     alt: 'الصورة الرئيسية لمنصة إطارات اليمن',
   },
-  email: 'ye-frames@gmail.com',
+  email: 'yemframes@gmail.com',
   socialLinks: [
     {
       text: 'فيسبوك',
