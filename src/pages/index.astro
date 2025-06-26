@@ -1,55 +1,79 @@
----
-import BaseLayout from '@/layouts/BaseLayout.astro'
-import siteConfig from '@/site-config'
-import Button from '@/components/Button.astro'
-import hero from '@/assets/hero.webp?w=480;768;1024&format=webp;avif'
----
-
-<BaseLayout description={siteConfig.description}>
-  <section class="text-center py-16 px-4">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primary golden-gradient-text-dark">
-      إطارات اليمن
-    </h1>
-    <p class="text-lg md:text-xl text-base-content mb-6">
-      من قلب اليمن... نصنع لإطاراتك روحًا.  
-      حوّل لحظاتك إلى لوحات تنبض بالأصالة والذوق،  
-      بمنصتك الأولى لتصميم الإطارات بأسلوبك الخاص.
-    </p>
-
-    <Button 
-      href="/frame" 
-      label="صمّم إطارك الآن"
-      on:click={() => {
-        gtag('event', 'start_frame_design', {
-          event_category: 'engagement',
-          event_label: 'CTA Home - Start Designing'
-        });
-      }}
-    />
-
-    <div class="mt-10">
-      <img
-        src={hero}
-        alt="الصورة الرئيسية لمنصة إطارات اليمن"
-        class="mx-auto rounded-xl shadow-lg w-full max-w-md md:max-w-xl lg:max-w-2xl"
-      />
-    </div>
-  </section>
-
-  <section class="prose max-w-4xl mx-auto px-4 text-right">
-    <h2>لماذا إطارات اليمن؟</h2>
-    <ul>
-      <li>تصميم أنيق وسهل الاستخدام</li>
-      <li>إطارات مستوحاة من الهوية اليمنية والعربية</li>
-      <li>توافق مثالي مع الهواتف والكمبيوتر</li>
-      <li>حفظ فوري للصورة بجودة عالية</li>
-      <li>واجهة عربية بالكامل</li>
-    </ul>
-    <hr class="hr-line" />
-  </section>
-
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-  </script>
+---  
+import BaseLayout from '@/layouts/BaseLayout.astro'  
+import siteConfig from '@/site-config'  
+import Button from '@/components/Button.astro'  
+---  
+  
+<BaseLayout description={siteConfig.description}>  
+  <section class="text-center py-16 px-4">  
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primary golden-gradient-text-dark">  
+      إطارات اليمن  
+    </h1>  
+    <p class="text-lg md:text-xl text-base-content mb-6">  
+      من قلب اليمن... نصنع لإطاراتك روحًا.    
+      حوّل لحظاتك إلى لوحات تنبض بالأصالة والذوق،    
+      بمنصتك الأولى لتصميم الإطارات بأسلوبك الخاص.  
+    </p>  
+  
+    <Button   
+      href="/frame"   
+      label="صمّم إطارك الآن"  
+      on:click={() => {  
+        gtag('event', 'start_frame_design', {  
+          event_category: 'engagement',  
+          event_label: 'CTA Home - Start Designing'  
+        });  
+      }}  
+    />  
+  
+    <div class="mt-10">  
+      <picture>
+        <source
+          type="image/avif"
+          srcset="
+            https://res.cloudinary.com/dzionl3jz/image/upload/f_avif,w_480/v1750974681/hero_1_yfzeol.webp 480w,
+            https://res.cloudinary.com/dzionl3jz/image/upload/f_avif,w_768/v1750974681/hero_1_yfzeol.webp 768w,
+            https://res.cloudinary.com/dzionl3jz/image/upload/f_avif,w_1024/v1750974681/hero_1_yfzeol.webp 1024w
+          "
+          sizes="(max-width: 640px) 480px, (max-width: 1024px) 768px, 1024px"
+        />
+        <source
+          type="image/webp"
+          srcset="
+            https://res.cloudinary.com/dzionl3jz/image/upload/f_webp,w_480/v1750974681/hero_1_yfzeol.webp 480w,
+            https://res.cloudinary.com/dzionl3jz/image/upload/f_webp,w_768/v1750974681/hero_1_yfzeol.webp 768w,
+            https://res.cloudinary.com/dzionl3jz/image/upload/f_webp,w_1024/v1750974681/hero_1_yfzeol.webp 1024w
+          "
+          sizes="(max-width: 640px) 480px, (max-width: 1024px) 768px, 1024px"
+        />
+        <img
+          src="https://res.cloudinary.com/dzionl3jz/image/upload/w_640/v1750974681/hero_1_yfzeol.webp"
+          alt="الصورة الرئيسية لمنصة إطارات اليمن"
+          width="640"
+          height="360"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          class="mx-auto rounded-xl shadow-lg w-full max-w-md md:max-w-xl lg:max-w-2xl"
+        />
+      </picture>
+    </div>  
+  </section>  
+  
+  <section class="prose max-w-4xl mx-auto px-4 text-right">  
+    <h2>لماذا إطارات اليمن؟</h2>  
+    <ul>  
+      <li>تصميم أنيق وسهل الاستخدام</li>  
+      <li>إطارات مستوحاة من الهوية اليمنية والعربية</li>  
+      <li>توافق مثالي مع الهواتف والكمبيوتر</li>  
+      <li>حفظ فوري للصورة بجودة عالية</li>  
+      <li>واجهة عربية بالكامل</li>  
+    </ul>  
+    <hr class="hr-line" />  
+  </section>  
+  
+  <script>  
+    window.dataLayer = window.dataLayer || [];  
+    function gtag(){dataLayer.push(arguments);}  
+  </script>  
 </BaseLayout>
