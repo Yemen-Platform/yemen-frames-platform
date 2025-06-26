@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import siteConfig from '@/site-config'
 import Button from '@/components/Button.astro'
+import hero from '@/assets/hero.webp?w=480;768;1024&format=webp;avif&as=picture'
 ---
 
 <BaseLayout description={siteConfig.description}>
@@ -26,22 +27,11 @@ import Button from '@/components/Button.astro'
       }}
     />
 
-<div class="mt-10">
-      <picture>
-        <!-- إذا أضفت hero.avif لاحقًا فقط أزل التعليق التالي -->
-        <!-- <source srcset={siteConfig.image.src.replace('.webp', '.avif')} type="image/avif" /> -->
-        <source srcset={siteConfig.image.src} type="image/webp" />
-        <img
-          src={siteConfig.image.src}
-          alt={siteConfig.image.alt}
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          width="640"
-          height="360"
-          class="mx-auto rounded-xl shadow-lg w-full max-w-md md:max-w-xl lg:max-w-2xl"
-        />
-      </picture>
+    <div class="mt-10">
+      <hero.Picture
+        alt="الصورة الرئيسية لمنصة إطارات اليمن"
+        class="mx-auto rounded-xl shadow-lg w-full max-w-md md:max-w-xl lg:max-w-2xl"
+      />
     </div>
   </section>
 
